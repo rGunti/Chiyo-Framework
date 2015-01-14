@@ -1,0 +1,19 @@
+==================================================
+TODOs (in procedural order)
+==================================================
+X Page Title
+X Logging System
+- Messaging (Info, Warn, Error) System
+- Database Connection
+- Login / Logout
+- User Account Management
+- Rights System
+- File Manager
+
+==================================================
+IDEAS (possible TODOs)
+==================================================
+- Fixed Navigation Menu
+- Navigation Menu with folders
+- Other Fonts (Google Fonts)
+- Download & Implement Fonts (Offline Fonts)

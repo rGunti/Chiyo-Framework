@@ -1,0 +1,207 @@
+/*
+ * ChiyoFramework
+ * style.less
+ * Author: Raphael
+ * 
+ * Copyright (C) 2015 rGunti
+ */
+
+/**
+ * Style Sheet
+ */
+
+/* FONT IMPORT */
+/*
+@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+*/
+
+/* GLOBAL LESS DEFINITIONS */
+@bgcolor:           #f0f0f0;
+@fgcolor:           #000000;
+@fonts:             sans-serif;
+@header-height:     40px;
+@header-padding:    0px;
+@nav-padding:       5px;
+@nav-entry-padding: 2px;
+@nav-top-padding:   87px;
+@article-padding:   5px;
+@footer-height:     75px;
+@footer-padding:    5px;
+@nav-width:         200px;
+@bgcolor-info:      #7070FF;
+@bgcolor-warn:      #DADA00;
+@bgcolor-fail:      #FF7070;
+@button-bgcolor:    #D8D8D8;
+@button-bdcolor:    #404040;
+@button-fgcolor:    #000000;
+@button-bgcolor-h:  #404040;
+@button-bdcolor-h:  #404040;
+@button-fgcolor-h:  #FFFFFF;
+@button-font-size:  12px;
+
+/* IMAGES */
+@img16-fail:        url('../img/16/fail.png');
+@img16-info:        url('../img/16/info.png');
+@img16-question:    url('../img/16/question.png');
+@img16-warn:        url('../img/16/warn.png');
+@img32-fail:        url('../img/32/fail.png');
+@img32-info:        url('../img/32/info.png');
+@img32-question:    url('../img/32/question.png');
+@img32-warn:        url('../img/32/warn.png');
+
+/* JQUERY OVERRIDE */
+.ui-state-error, 
+.ui-widget-content .ui-state-error, 
+.ui-widget-header .ui-state-error,
+.ui-state-highlight, 
+.ui-widget-content .ui-state-highlight, 
+.ui-widget-header .ui-state-highlight {
+    background: transparent;
+    color: @fgcolor;
+    font-size: 13px;
+}
+
+/* MAIN PAGE LAYOUT */
+html, body {
+    font-family: @fonts;
+    margin: 0;
+    padding: 0;
+    background-color: @bgcolor;
+    color: @fgcolor;
+}
+
+/* HEADER */
+header {
+    background-color: @bgcolor;
+    border-bottom: 1px solid @fgcolor;
+    height: @header-height;
+    padding: @header-padding;
+    font-size: x-large;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+header table td {
+    font-size: x-large;
+    vertical-align: middle;
+}
+
+/* NAVIGATION */
+nav {
+    float: left;
+    width: @nav-width;
+    padding-top: @nav-top-padding;
+}
+nav ul {
+    list-style: none;
+    padding: @nav-padding;
+}
+nav ul li { }
+nav ul li a {
+    color: @fgcolor;
+    display: block;
+    text-decoration: none;
+    padding: @nav-entry-padding;
+}
+nav ul li a:hover {
+    background-color: @fgcolor;
+    color: @bgcolor;
+}
+
+/* ARTICLE */
+article {
+    margin-left: @nav-width;
+    padding: @article-padding;
+    padding-top: @header-height;
+    padding-bottom: @footer-height;
+}
+article table {
+    width: 100%;
+}
+article table td {
+    padding: 0px;
+}
+article table td.tbl_desc {
+    font-weight: bold;
+    width: 175px;
+}
+article table td.tbl_val {
+    
+}
+
+/* FOOTER */
+footer {
+    background-color: @bgcolor;
+    border-top: 1px solid @fgcolor;
+    height: @footer-height;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+footer p {
+    padding: @footer-padding;
+}
+
+/* HIGHLIGHTING PARAGRAPHS */
+p.info {
+    padding: 5 5 5 25;
+    background-color: @bgcolor-info;
+    background-image: @img16-info;
+    background-position-x: 5px;
+    background-position-y: 5px;
+    background-repeat: no-repeat;
+    color: white;
+}
+p.warn {
+    padding: 5 5 5 25;
+    background-color: @bgcolor-warn;
+    background-image: @img16-warn;
+    background-position-x: 5px;
+    background-position-y: 5px;
+    background-repeat: no-repeat;
+    color: white;
+}
+p.fail {
+    padding: 5 5 5 25;
+    background-color: @bgcolor-fail;
+    background-image: @img16-fail;
+    background-position-x: 5px;
+    background-position-y: 5px;
+    background-repeat: no-repeat;
+    color: white;
+}
+b.msg_title {
+    display: block;
+}
+pre {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+/* INPUTS */
+input[type=button],
+a.button {
+    background-color: @button-bgcolor;
+    border: 1px solid @button-bdcolor;
+    color: @button-fgcolor;
+    cursor: default;
+    font-size: @button-font-size;
+    padding: 5px;
+    text-decoration: none;
+}
+input[type=button]:hover,
+a.button:hover {
+    background-color: @button-bgcolor-h;
+    border: 1px solid @button-bdcolor-h;
+    color: @button-fgcolor-h;
+}
+a.button {
+    
+}
+a.button:hover {
+    
+}

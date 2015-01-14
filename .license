@@ -1,0 +1,12 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}${project.displayName}
+${licensePrefix}${nameAndExt}
+${licensePrefix}Author: ${user}
+${licensePrefix}
+${licensePrefix}Licensed under The MIT License (MIT) (=> see README.md for more information)
+${licensePrefix}Copyright (C) 2015 rGunti
+<#if licenseLast??>
+${licenseLast}
+</#if>

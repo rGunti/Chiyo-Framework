@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Chiyo Framework
+${licensePrefix}© 2015, rGunti
+<#if licenseLast??>
+${licenseLast}
+</#if>
