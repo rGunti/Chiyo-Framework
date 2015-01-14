@@ -1,0 +1,63 @@
+==================================================
+(MY) BEST PRACTICE
+==================================================
+This text file contains some rules I follow when
+I code. I cannot force everyone to do it my way,
+but I'd like to clarify my coding style and keep
+the code of this project mostly in the same style.
+
+Of corse, there are some standard rules like:
+ - Clean your source.
+ - Format your source correctly, but be sure
+    to not cause a lot of differences between your
+    local file and the repo file. It necessary,
+    format your source manually.
+ - Name variables appropriately.
+ - Comment your code.
+ - Write function descriptions so they can be
+    read without opening the functions source
+    itself.
+ - ... etc.
+
+1. Short Conditionals (IF)
+--------------------------------------------------
+    if (x == y) return true;
+
+I often do something like this, because I like the
+slim notation without the '{' and '}'.
+If the condition is longer or more complex, I use
+a line break after the conditional.
+
+    if (x == y)
+        return true;
+
+The same rule applies, when the conditional has an
+'else if' or 'else' sequence.
+
+    if (x == y) return true;
+    else return false;
+
+or
+
+    if (x == y)
+        return true;
+    else
+        return false;
+
+Very important: I do not mix these versions with
+each other. Something like the following is not
+my style:
+
+    if (x == y) return true;
+    else
+        return false;
+
+2. Inline Conditionals
+--------------------------------------------------
+If there is a short conditional for assigning a
+variable or returning a value, I write it the
+following:
+
+    x = (y > 20) ? true : false;
+
+... TO BE CONTINUED ...
