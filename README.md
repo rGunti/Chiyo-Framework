@@ -24,6 +24,7 @@ Chiyo requires an Apache Web Server running a current version of PHP (currently 
 * Rights System: *There should be a rights system that allows the developer to prevent certain groups of users to do specific things.*
 * File Manager: *A file manager should be available, where users can upload and download files using an Explorer-like system with folders*
 * AJAX Transmission: *The framework should transfer data for lists (like a list of users) over an AJAX request. This should enable the application to support features like paging a list without implementing a complex system using PHP itself.*
+* Write Documentation (-.-)
 
 A simple TODO List can be found in the `/docs` folder.
 
