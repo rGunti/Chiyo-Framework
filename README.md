@@ -32,6 +32,7 @@ A simple TODO List can be found in the `/docs` folder.
 * Fixed Navigation Bar: *The navigation bar to the right could be fixed so only the pages content scrolls up and down.*
 * Navigation Folders: *The navigation bar should be able to handle folders so certain items can be grouped. The folders should be collapsible and the state should be stored across the browser session. (Maybe using JavaScript for this?)*
 * Including Captcha System: *To prevent spam using bots, the framework could feature a Captcha system (custom or implemented through a third-party library)*
+* Display Last Page Source Update in Footer (for single page): *The footer could feature a "Last Updated" field (toggleable) which displays the edit date of the included body page / script.*
 
 ## License
 
