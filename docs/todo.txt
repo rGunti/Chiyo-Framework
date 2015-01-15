@@ -20,3 +20,4 @@ IDEAS (possible TODOs)
 - Other Fonts (Google Fonts)
 - Download & Implement Fonts (Offline Fonts)
 - Include CAPTCHA
+- Display Last Page Source Update in Footer (for single page)
