@@ -19,3 +19,4 @@ IDEAS (possible TODOs)
 - Navigation Menu with folders
 - Other Fonts (Google Fonts)
 - Download & Implement Fonts (Offline Fonts)
+- Include CAPTCHA
