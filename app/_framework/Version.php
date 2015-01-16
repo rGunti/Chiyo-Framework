@@ -14,5 +14,5 @@
  * @author Raphael
  */
 class FrameworkVersion {
-    const VERSION = "Chiyo 0.1";
+    const VERSION = "Chiyo 0.1.1";
 }
