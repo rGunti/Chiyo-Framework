@@ -5,10 +5,11 @@
  * _info.php
  * Author: Raphael
  * 
+ * Licensed under The MIT License (MIT) (=> see README.md for more information)
  * Copyright (C) 2015 rGunti
  */
 
-$pageTitle = "Info";
+$pageTitle = Text::NAV_ABOUT;
 ?>
 <h1><?= $pageTitle ?></h1>
 <table>

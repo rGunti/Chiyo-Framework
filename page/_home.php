@@ -8,7 +8,7 @@
  * Copyright (C) 2015 rGunti
  */
 
-$pageTitle = "Home";
+$pageTitle = Text::NAV_HOME;
 ?>
 <h1><?= $pageTitle ?></h1>
 <p>

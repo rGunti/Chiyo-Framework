@@ -14,11 +14,19 @@
  * @author Raphael
  */
 class NavigationPath {
+    private static function getCurrentPathAsString() { return (NavigationPath::isEmpty()) ? "/" : $_SERVER['PATH_INFO']; }
     /** Returns the current navigation path */
-    public static function getCurrentPath() { return (NavigationPath::isEmpty()) ? "/" : $_SERVER['PATH_INFO']; }
+    public static function getCurrentPath() {
+        if (NavigationPath::isEmpty()) { return "/"; }
+        $path = "";
+        foreach (NavigationPath::getPathElements() as $element) {
+            $path .= "/" . $element;
+        }
+        return $path;
+    }
     /** Returns an array of all path elements */
     public static function getPathElements() {
-        $navEls = explode('/', NavigationPath::getCurrentPath());
+        $navEls = explode('/', NavigationPath::getCurrentPathAsString());
         array_shift($navEls);
         return array_filter($navEls);
     }

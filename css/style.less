@@ -11,28 +11,29 @@
  */
 
 /* FONT IMPORT */
-/*
 @import url(http://fonts.googleapis.com/css?family=Lato);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 @import url(http://fonts.googleapis.com/css?family=Roboto);
-*/
 
 /* GLOBAL LESS DEFINITIONS */
 @bgcolor:           #f0f0f0;
 @fgcolor:           #000000;
-@fonts:             sans-serif;
+@hovcolor:          #606060;
+@fonts:             'Open Sans',sans-serif;
 @header-height:     40px;
 @header-padding:    0px;
-@nav-padding:       5px;
-@nav-entry-padding: 2px;
+@nav-padding:       0px;
+@nav-entry-padding: 5px;
 @nav-top-padding:   87px;
 @article-padding:   5px;
-@footer-height:     75px;
+@article-width:     800px;
+@footer-height:     100px;
 @footer-padding:    5px;
 @nav-width:         200px;
 @bgcolor-info:      #7070FF;
 @bgcolor-warn:      #DADA00;
 @bgcolor-fail:      #FF7070;
+@button-minwidth:   100px;
 @button-bgcolor:    #D8D8D8;
 @button-bdcolor:    #404040;
 @button-fgcolor:    #000000;
@@ -41,6 +42,7 @@
 @button-fgcolor-h:  #FFFFFF;
 @button-font-size:  12px;
 @lastupdated-font-size: x-small;
+@confirmWidth:      500px;
 
 /* IMAGES */
 @img16-fail:        url('../img/16/fail.png');
@@ -101,6 +103,9 @@ nav ul {
     padding: @nav-padding;
 }
 nav ul li { }
+nav ul li.navSpacer {
+    height: 10px;
+}
 nav ul li a {
     color: @fgcolor;
     display: block;
@@ -118,26 +123,64 @@ article {
     padding: @article-padding;
     padding-top: @header-height;
     padding-bottom: @footer-height;
+    max-width: @article-width;
+}
+article .closeNotification { /* Notification Close Button */
+    position: relative;
+    float: right;
+    cursor: default;
+}
+article .closeNotification:hover { /* Notification Close Button */
+    color: gray;
+}
+article a {
+    color: @fgcolor;
+}
+article a:hover {
+    color: @hovcolor;
+}
+article a.blockLink {
+    display: block;
+    text-align: center;
 }
 article table {
-    width: 100%;
+    /*width: 100%;*/
+    border-spacing: 0;
 }
 article table td {
-    padding: 0px;
+    padding: 3px;
 }
 article table td.tbl_desc {
     font-weight: bold;
     width: 175px;
 }
 article table td.tbl_val {
-    
+}
+article table td.buttonRow {
+    text-align: right;
+}
+article table tr.headerLine td {
+    font-weight: bold;
+    border-bottom: 1px solid @fgcolor;
+}
+article table tr.dataLine:hover {
+    background-color: @button-bgcolor;
+}
+article table tr.dataLine td {
+}
+article table tr.footerLine td {
+    border-top: 1px solid @fgcolor;
+    font-size: x-small;
+    text-align: center;
+}
+article td.rightAlign {
+    text-align: right;
 }
 
 /* FOOTER */
 footer {
     background-color: @bgcolor;
     border-top: 1px solid @fgcolor;
-    height: @footer-height;
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -187,7 +230,11 @@ pre {
 }
 
 /* INPUTS */
+input {
+    font-family: @fonts;
+}
 input[type=button],
+input[type=submit],
 a.button {
     background-color: @button-bgcolor;
     border: 1px solid @button-bdcolor;
@@ -196,16 +243,35 @@ a.button {
     font-size: @button-font-size;
     padding: 5px;
     text-decoration: none;
+    min-width: @button-minwidth;
 }
 input[type=button]:hover,
+input[type=submit]:hover,
 a.button:hover {
     background-color: @button-bgcolor-h;
     border: 1px solid @button-bdcolor-h;
     color: @button-fgcolor-h;
 }
-a.button {
-    
+input[type=submit] {
+    font-weight: bold;
 }
-a.button:hover {
-    
+input[type=text],
+input[type=password],
+select {
+    border: 1px solid @button-bdcolor;
+    padding: 5px;
+    width: 200px;
+}
+
+/* FORM */
+form {  }
+form.confirm {
+    border: 1px solid @fgcolor;
+    width: @confirmWidth;
+}
+form.confirm table {
+    width: 100%;
+}
+form.confirm table td.confirmIcon {
+    width: 32px;
 }

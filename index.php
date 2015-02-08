@@ -7,7 +7,6 @@
  * Copyright (C) 2015 rGunti
  */
 
-ob_start();
 
 // Definition of Script Constants (IMPORTANT!)
 define('CONST_APP_ROOT', dirname(__FILE__));
@@ -17,8 +16,8 @@ define('PAGE_TITLE_INDICATOR', '%%%TITLE%%%');
 require_once 'app/_include.php';
 
 $pageTitle = "";
+ob_start();
 ?>
-
 <html>
     <head>
         <meta charset="UTF-8">
@@ -38,6 +37,8 @@ $pageTitle = "";
         <script src="<?= Utils::getApplicationBasePath() ?>/js/libs/less.min.js"></script>
         
         <!-- JavaScript Include -->
+        <script src="<?= Utils::getApplicationBasePath() ?>/js/_notifications.js"></script>
+        <script src="<?= Utils::getApplicationBasePath() ?>/js/_script.js"></script>
         <script src="<?= Utils::getApplicationBasePath() ?>/js/script.js"></script>
         
         <!-- Favicon -->
@@ -51,6 +52,12 @@ $pageTitle = "";
         <article><?php require_once Utils::getServerBasePath() . '/app/NavigationProcessor.php'; ?></article>
         <footer><?php require_once Utils::getServerBasePath() . '/page/master/footer.php'; ?></footer>
     </body>
+    <script>
+        $('document').ready(function() { 
+            <?php if (AppConfig::APP_NOTIFICATION_AUTO_DISMISS_MESSAGES) { ?>window.setTimeout(function() { closeMessage(".message"); }, <?= AppConfig::APP_NOTIFICATION_AUTO_DISMISS_MESSAGES_TIMEOUT ?>); <?php } ?>
+            <?php if (AppConfig::APP_NOTIFICATION_AUTO_DISMISS_ERRORS)   { ?>window.setTimeout(function() { closeMessage(".error"); },   <?= AppConfig::APP_NOTIFICATION_AUTO_DISMISS_ERRORS_TIMEOUT ?>);   <?php } ?>
+        });
+    </script>
 </html>
 <?php
 Utils::processPageContent($pageTitle);

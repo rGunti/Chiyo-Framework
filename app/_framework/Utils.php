@@ -26,4 +26,8 @@ class Utils {
         $pageContent = StringUtils::replaceString($pageContent, PAGE_TITLE_INDICATOR, $pageTitle);
         echo $pageContent;
     }
+    /** Returns a formatted translation text */
+    public static function getFormattedTranslationText($translation, $param1, $param2 = NULL, $param3 = NULL, $param4 = NULL) {
+        return sprintf($translation, $param1, $param2, $param3, $param4);
+    }
 }

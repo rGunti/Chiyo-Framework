@@ -10,10 +10,8 @@
 
 Logger::warn("404 Page Not Found for path: " . NavigationPath::getCurrentPath());
 
-$pageTitle = "404 Page Not Found";
+$pageTitle = Text::ERROR_404_TITLE;
 ?>
 <h1><?= $pageTitle ?></h1>
-<p>
-    Sorry, but the requested page could not be found!
-</p>
+<p><?= Text::ERROR_404_MESSAGE ?></p>
 <pre><?php print_r(NavigationPath::getPathElements()); ?></pre>
