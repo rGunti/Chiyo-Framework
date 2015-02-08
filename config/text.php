@@ -22,6 +22,7 @@ class Text {
     const NAV_LOGIN = "Login";
     const NAV_LOGOUT = "Logout";
     const NAV_LOG = "Log";
+    const NAV_UPLOAD = "File Upload";
     const NAV_HELP = "Help";
     const NAV_ABOUT = "About this application";
     
@@ -50,10 +51,14 @@ class Text {
     const FORM_LOGIN_PASSWORD = "Password";
     const FORM_ADDUSER_USERNAME = "Username";
     const FORM_ADDUSER_ROLE = "Role";
+    const FORM_UPLOAD_FILE = "Select File To Upload";
     
     // Confirm Questions
     const CONFIRM_DELETEUSER = "Would you like to delete <b>%s</b> (<i>%s</i>)?";
     const CONFIRM_RESETUSER = "Would you like to reset <b>%s</b>'s (<i>%s</i>) password?";
+    
+    // Texts
+    const TEXT_FILEUPLOAD = "Upload a file here:";
     
     // Button Text
     const BUTTON_YES = "Yes";
@@ -62,6 +67,7 @@ class Text {
     const BUTTON_CLEARLOG = "Clear Log";
     const BUTTON_SAVE = "Save";
     const BUTTON_CREATE = "Create";
+    const BUTTON_UPLOAD = "Upload";
     
     // Error Messages
     const ERROR_NOTIMPLEMENTED_TITLE = "This function has not yet been implemented!";
@@ -89,6 +95,16 @@ class Text {
     const ERROR_RESETUSER_SELF_MESSAGE = "You cannot reset your own password. Please change your password in the User Menu or ask an Administrator to reset your password.";
     const ERROR_RESETUSER_FAILED_TITLE = "Password could not be reset";
     const ERROR_RESETUSER_FAILED_MESSAGE = "Something went wrong while trying to reset the password of %s (%s).";
+    const ERROR_UPLOAD_DISABLED_TITLE = "File Upload disabled";
+    const ERROR_UPLOAD_DISABLED_MESSAGE = "You cannot upload a file, because file uploads have been disabled. Please contact your application administrator for help.";
+    const ERROR_UPLOAD_PHPINIMAX_TITLE = "Upload Quota larger than allowed by server";
+    const ERROR_UPLOAD_PHPINIMAX_MESSAGE = "Your configured maxium file upload size is larger than the server allowes. Please check php.ini for more details.";
+    const ERROR_UPLOAD_TOOLARGE_TITLE = "Uploaded File is too large";
+    const ERROR_UPLOAD_TOOLARGE_MESSAGE = "Your file is larger than %s (your file is %s) and cannot be accepted.";
+    const ERROR_UPLOAD_TYPENOTALLOWED_TITLE = "Uploaded File type is not allowed";
+    const ERROR_UPLOAD_TYPENOTALLOWED_MESSAGE = "Your file is <b>%s</b>, allowed file types are: %s";
+    const ERROR_UPLOAD_UNKNOWNERROR_TITLE = "File Upload triggered an unknown error";
+    const ERROR_UPLOAD_UNKNOWNERROR_MESSAGE = "%s<br>Please report this to the application administrator or the developer.";
     
     // Success Messages
     const SUCCESS_LOGIN_TITLE = "Welcome, %s";
@@ -105,4 +121,6 @@ class Text {
     const SUCCESS_DELUSER_MESSAGE = "User %s (%s) was deleted successfully.";
     const SUCCESS_RESETUSER_TITLE = "Password reset";
     const SUCCESS_RESETUSER_MESSAGE = "User %s's (%s) password has been reset.<br>%s's new password is: <pre>%s</pre>";
+    const SUCCESS_UPLOAD_TITLE = "File uploaded";
+    const SUCCESS_UPLOAD_MESSAGE = "Your file (%s, %s) has been uploaded successfully. The new file name is: %s";
 }

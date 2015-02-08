@@ -25,6 +25,7 @@ switch (NavigationPath::getCurrentPath()) {
     case '/Admin/Users/Add': $pageSource = Utils::getServerBasePath() . '/page/_adminAddUser.php'; break;
     case '/Admin/Users/Delete': $pageSource = Utils::getServerBasePath() . '/page/confirm/_confirmDeleteUser.php'; break;
     case '/Admin/Users/Reset': $pageSource = Utils::getServerBasePath() . '/page/confirm/_confirmResetUser.php'; break;
+    case '/Upload': $pageSource = Utils::getServerBasePath() . '/page/_upload.php'; break;
     
     case '/403' : $pageSource = Utils::getServerBasePath() . '/page/_403.php'; break;
     default: $pageSource = Utils::getServerBasePath() . '/page/_404.php'; break;

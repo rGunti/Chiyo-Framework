@@ -116,5 +116,56 @@ switch (NavigationPath::getCurrentPath()) {
         }
         NavigationPath::redirect("/Admin/Users");
         break;
+    case '/Upload.Action':
+        Authentification::enforceLoggedIn();
+        if (!$_FILES['uploadFile']) {
+            Errors::addError(new Notification(Text::ERROR_UPLOAD_UNKNOWNERROR_TITLE, Utils::getFormattedTranslationText(Text::ERROR_UPLOAD_UNKNOWNERROR_MESSAGE, "No file submitted")));
+        } else if ($_FILES['uploadFile']['error']) {
+            Errors::addError(new Notification(Text::ERROR_UPLOAD_UNKNOWNERROR_TITLE, Utils::getFormattedTranslationText(Text::ERROR_UPLOAD_UNKNOWNERROR_MESSAGE, $_FILES['uploadFile'])));
+        } else if (!FileUpload::isAllowedFileExtension($_FILES['uploadFile'], AppConfig::APP_UPLOAD_ALLOWEDTYPES)) {
+            Errors::addError(
+                    new Notification(
+                            Text::ERROR_UPLOAD_TYPENOTALLOWED_TITLE, 
+                            Utils::getFormattedTranslationText(
+                                    Text::ERROR_UPLOAD_TYPENOTALLOWED_MESSAGE,
+                                    strtoupper(AppConfig::APP_UPLOAD_CHECKMIME ? FileUpload::getFileMimeType($_FILES['uploadFile']) : FileUpload::getFileExtension($_FILES['uploadFile'])),
+                                    strtoupper(FileUpload::getAllowedFileTypesAsString()))));
+        } else if (FileUpload::isLargerThanAllowed($_FILES['uploadFile'], AppConfig::APP_UPLOAD_MAXFILESIZE)) {
+            Errors::addError(
+                    new Notification(
+                            Text::ERROR_UPLOAD_TOOLARGE_TITLE, 
+                            Utils::getFormattedTranslationText(
+                                    Text::ERROR_UPLOAD_TOOLARGE_MESSAGE, 
+                                    FileUpload::convertFileSizeToReadable(AppConfig::APP_UPLOAD_MAXFILESIZE),
+                                    FileUpload::convertFileSizeToReadable(FileUpload::getFileSize($_FILES['uploadFile'])))));
+        } else {
+            $upload = FileUpload::storeUploadedFile($_FILES['uploadFile']);
+            if ($upload) {
+                Messages::addMessage(
+                        new Notification(
+                                Text::SUCCESS_UPLOAD_TITLE, 
+                                Utils::getFormattedTranslationText(
+                                        Text::SUCCESS_UPLOAD_MESSAGE,
+                                        FileUpload::getFileName($_FILES['uploadFile']),
+                                        FileUpload::convertFileSizeToReadable(FileUpload::getFileSize($_FILES['uploadFile'])),
+                                        $upload)));
+                Logger::info("File has been uploaded: Name: " . 
+                        $upload . 
+                        ", Size: " . FileUpload::getFileSize($_FILES['uploadFile']) . 
+                        ", Type: " . FileUpload::getFileMimeType($_FILES['uploadFile']));
+            } else {
+                Errors::addError(new Notification(Text::ERROR_UPLOAD_UNKNOWNERROR_TITLE, Utils::getFormattedTranslationText(Text::ERROR_UPLOAD_UNKNOWNERROR_MESSAGE, $_FILES['uploadFile']['error'])));
+            }
+        }
+        NavigationPath::redirect("/Upload");
+        break;
+    case '/Download.Action':
+        Authentification::enforceLoggedIn();
+        if (isset($_GET['file'])) {
+            FileDownload::provideFile($_GET['file'], isset($_GET['dl']));
+        } else {
+            NavigationPath::redirect("/404");
+        }
+        break;
     default: break;
 }

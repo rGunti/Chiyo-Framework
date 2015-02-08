@@ -42,6 +42,14 @@ class AppConfig {
     
     // Security Configuration
     const APP_SECURE_HASH_SEED = "BPKeL*Eh@qtpA4t";
+    
+    // File Upload Configuration
+    const APP_UPLOAD_ENABLED = 1;
+    const APP_UPLOAD_STORAGE = "C:/xampp/htdata/chiyo/uploads/";
+    const APP_UPLOAD_MAXFILESIZE = 262144; // in Bytes => 256 kB
+    const APP_UPLOAD_CHECKMIME = 0;
+    const APP_UPLOAD_ALLOWEDTYPES = array("jpg", "png");
+    const APP_UPLOAD_KEEPORIGINALNAME = 0;
 }
 
 class RoleConfig {

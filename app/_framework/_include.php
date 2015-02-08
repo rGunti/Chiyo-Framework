@@ -29,5 +29,7 @@ require_once _FRAMEWORK_INCLUDE . 'Notification.php';
 
 require_once _FRAMEWORK_INCLUDE . 'MySQLUtils.php';
 require_once _FRAMEWORK_INCLUDE . 'Authentification.php';
+require_once _FRAMEWORK_INCLUDE . 'FileUpload.php';
+require_once _FRAMEWORK_INCLUDE . 'FileDownload.php';
 
 require_once _FRAMEWORK_INCLUDE . 'NavigationHelper.php';

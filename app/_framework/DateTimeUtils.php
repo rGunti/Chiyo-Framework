@@ -21,4 +21,12 @@ class DateTimeUtils {
         
         return date('Y-m-d H:i:s', $sec).$usec;
     }
+    
+    /** Returns a timestamp suitable for File Names */
+    public static function getFileNameTimestamp() {
+        list($usec, $sec) = explode(' ', microtime());
+        $usec = str_replace("0.", "", $usec);
+        
+        return date('Ymd_His', $sec).$usec;
+    }
 }
