@@ -34,4 +34,10 @@ class Utils {
     public static function getFormattedTranslationText($translation, $param1, $param2 = NULL, $param3 = NULL, $param4 = NULL) {
         return sprintf($translation, $param1, $param2, $param3, $param4);
     }
+    
+    public static function enforceGetParameter($key, $redirectUrl = "/") {
+        if (!isset($_GET[$key]) || empty($_GET[$key])) {
+            NavigationPath::redirect($redirectUrl);
+        }
+    }
 }

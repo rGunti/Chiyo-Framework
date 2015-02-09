@@ -44,6 +44,7 @@ switch (NavigationPath::getCurrentPath()) {
             NavigationPath::redirect("/AboutMe/ChPasswd");
         }
     case '/Admin/Users/Add.Action':
+        Authentification::enforceRole(RoleConfig::ROLEID_ADMIN);
         $newName = strtolower($_POST['username']);
         $newRole = $_POST['role'];
         $newId = 0;
@@ -64,6 +65,27 @@ switch (NavigationPath::getCurrentPath()) {
             } else {
                 Errors::addError(new Notification(Text::ERROR_ADDUSER_FAILED_TITLE, Text::ERROR_ADDUSER_FAILED_MESSAGE));
             }
+        }
+        NavigationPath::redirect("/Admin/Users");
+        break;
+    case '/Admin/Users/Edit.Action':
+        Authentification::enforceRole(RoleConfig::ROLEID_ADMIN);
+        $userId = $_POST['userId'];
+        $userRole = $_POST['role'];
+        Logger::debug("POST output: " . print_r($_POST, true));
+        if ($userId == Authentification::ADMIN_USERID) {
+            Errors::addError(new Notification(Text::ERROR_EDITUSER_FAILED_TITLE, Text::ERROR_EDITUSER_FAILED_MESSAGE));
+        } else if (!isset($userId) || empty($userId) || !isset($userRole) || empty($userRole)) {
+            Errors::addError(new Notification(Text::ERROR_EDITUSER_FAILED_TITLE, Text::ERROR_EDITUSER_FAILED_MESSAGE));
+        } else if (Authentification::editUser($userId, $userRole)) {
+            $user = Authentification::getUser($userId);
+            Messages::addMessage(new Notification(Text::SUCCESS_EDITUSER_TITLE, 
+                    Utils::getFormattedTranslationText(Text::SUCCESS_EDITUSER_MESSAGE,
+                            $user[ViewFieldConfig::USERS_NAME], 
+                            $user[ViewFieldConfig::USERS_ROLE])));
+            Logger::info("User got changed: " . $userId . ", New Role: " . $userRole);
+        } else {
+            Errors::addError(new Notification(Text::ERROR_EDITUSER_FAILED_TITLE, Text::ERROR_EDITUSER_FAILED_MESSAGE));
         }
         NavigationPath::redirect("/Admin/Users");
         break;
@@ -148,7 +170,7 @@ switch (NavigationPath::getCurrentPath()) {
                                         Text::SUCCESS_UPLOAD_MESSAGE,
                                         FileUpload::getFileName($_FILES['uploadFile']),
                                         FileUpload::convertFileSizeToReadable(FileUpload::getFileSize($_FILES['uploadFile'])),
-                                        $upload)));
+                                        HtmlUtils::getLink("/Download.Action?file=$upload", $upload))));
                 Logger::info("File has been uploaded: Name: " . 
                         $upload . 
                         ", Size: " . FileUpload::getFileSize($_FILES['uploadFile']) . 

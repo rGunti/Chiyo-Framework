@@ -23,6 +23,10 @@
     
     NavigationHelper::addSpacer();
     
+    NavigationHelper::createMenuItem(Text::NAV_UPLOAD, "/Upload", NavigationDisplayIfEnum::ONLY_IF_LOGGEDIN);
+    
+    NavigationHelper::addSpacer();
+    
     NavigationHelper::createMenuItem(Text::NAV_LOG ,"/Log", NavigationDisplayIfEnum::ONLY_IF_CONDITION, 0, 
             (Authentification::getStoredProperty("role") == RoleConfig::ROLEID_ADMIN) && AppConfig::APP_LOG_VISIBLE);
     NavigationHelper::createMenuItem(Text::NAV_HELP, "/Help");

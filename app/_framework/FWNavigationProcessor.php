@@ -23,6 +23,7 @@ switch (NavigationPath::getCurrentPath()) {
     case '/Admin': $pageSource = Utils::getServerBasePath() . '/page/_admin.php'; break;
     case '/Admin/Users': $pageSource = Utils::getServerBasePath() . '/page/_adminListUser.php'; break;
     case '/Admin/Users/Add': $pageSource = Utils::getServerBasePath() . '/page/_adminAddUser.php'; break;
+    case '/Admin/Users/Edit': $pageSource = Utils::getServerBasePath() . '/page/_adminEditUser.php'; break;
     case '/Admin/Users/Delete': $pageSource = Utils::getServerBasePath() . '/page/confirm/_confirmDeleteUser.php'; break;
     case '/Admin/Users/Reset': $pageSource = Utils::getServerBasePath() . '/page/confirm/_confirmResetUser.php'; break;
     case '/Upload': $pageSource = Utils::getServerBasePath() . '/page/_upload.php'; break;

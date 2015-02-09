@@ -28,6 +28,7 @@ CREATE VIEW vusers AS
 	SELECT
 		u.ID USER_ID,
         u.NAME USER_NAME,
+        r.ID ROLE_ID,
         r.NAME ROLE_NAME
 	FROM
 		users u,

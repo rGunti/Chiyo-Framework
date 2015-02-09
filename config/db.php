@@ -52,5 +52,6 @@ class ViewConfig {
 class ViewFieldConfig {
     const USERS_ID = "USER_ID";
     const USERS_NAME = "USER_NAME";
+    const USERS_ROLE_ID = "ROLE_ID";
     const USERS_ROLE = "ROLE_NAME";
 }

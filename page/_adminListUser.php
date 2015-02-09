@@ -32,8 +32,9 @@ $pageTitle = Text::SCR_USERLIST;
         <td><?= $user[ViewFieldConfig::USERS_NAME] ?></td>
         <td><?= $user[ViewFieldConfig::USERS_ROLE] ?></td>
         <td>
-            <?php echo HtmlUtils::getLink("Delete?id=" . $user[ViewFieldConfig::USERS_ID], HtmlUtils::getImage("16/user_delete.png")); ?>
-            <?php echo HtmlUtils::getLink("Reset?id=" . $user[ViewFieldConfig::USERS_ID], HtmlUtils::getImage("16/update.png")); ?>
+            <?php echo HtmlUtils::getLink("Edit?id=" . $user[ViewFieldConfig::USERS_ID], HtmlUtils::getImage("16/user_edit.png"), Text::SCR_EDIT_USER); ?>
+            <?php echo HtmlUtils::getLink("Reset?id=" . $user[ViewFieldConfig::USERS_ID], HtmlUtils::getImage("16/update.png"), Text::SCR_RESET_USER); ?>
+            <?php echo HtmlUtils::getLink("Delete?id=" . $user[ViewFieldConfig::USERS_ID], HtmlUtils::getImage("16/user_delete.png"), Text::SCR_DELETE_USER); ?>
         </td>
     </tr>
     <?php } ?>

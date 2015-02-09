@@ -31,8 +31,9 @@ class Text {
     const SCR_USER = "About Me (%s)";
     const SCR_CHPASSWD = "Change Password";
     const SCR_ADD_USER = "Add User";
+    const SCR_EDIT_USER = "Edit User";
     const SCR_DELETE_USER = "Delete User";
-    const SCR_RESET_USER = "Reset User";
+    const SCR_RESET_USER = "Reset User Password";
     
     // Screen Texts
     const SCT_USER_USERNAME = "Username";
@@ -85,6 +86,10 @@ class Text {
     const ERROR_ADDUSER_EXISTS_MESSAGE = "A user with the name %s already exists.";
     const ERROR_ADDUSER_FAILED_TITLE = "User could not be created";
     const ERROR_ADDUSER_FAILED_MESSAGE = "Something went wrong while trying to create your new user.";
+    const ERROR_EDITUSER_ADMIN_TITLE = "User cannot be edited";
+    const ERROR_EDITUSER_ADMIN_MESSAGE = "This user cannot be edited because it is the default Admin user.";
+    const ERROR_EDITUSER_FAILED_TITLE = "User could not be edited";
+    const ERROR_EDITUSER_FAILED_MESSAGE = "Something went wrong while trying to edit the user.";
     const ERROR_DELUSER_ADMIN_TITLE = "User cannot be deleted";
     const ERROR_DELUSER_ADMIN_MESSAGE = "This user cannot be deleted because it is the default Admin user.";
     const ERROR_DELUSER_SELF_TITLE = "User cannot be deleted";
@@ -116,11 +121,13 @@ class Text {
     const SUCCESS_LOGCLEARED_TITLE = "Log cleared";
     const SUCCESS_LOGCLEARED_MESSAGE = "Your log has been cleared successfully.";
     const SUCCESS_ADDUSER_TITLE = "User added";
-    const SUCCESS_ADDUSER_MESSAGE = "User %s (%s) has been added successfully.<br>%s's new password is: <pre>%s</pre>";
+    const SUCCESS_ADDUSER_MESSAGE = "User <b>%s</b> (%s) has been added successfully.<br>%s's new password is: <pre>%s</pre>";
+    const SUCCESS_EDITUSER_TITLE = "User edited";
+    const SUCCESS_EDITUSER_MESSAGE = "User <b>%s</b> (New Role: %s) has been edited successfully.";
     const SUCCESS_DELUSER_TITLE = "User deleted";
-    const SUCCESS_DELUSER_MESSAGE = "User %s (%s) was deleted successfully.";
+    const SUCCESS_DELUSER_MESSAGE = "User <b>%s</b> (%s) was deleted successfully.";
     const SUCCESS_RESETUSER_TITLE = "Password reset";
-    const SUCCESS_RESETUSER_MESSAGE = "User %s's (%s) password has been reset.<br>%s's new password is: <pre>%s</pre>";
+    const SUCCESS_RESETUSER_MESSAGE = "User <b>%s</b>'s (%s) password has been reset.<br>%s's new password is: <pre>%s</pre>";
     const SUCCESS_UPLOAD_TITLE = "File uploaded";
-    const SUCCESS_UPLOAD_MESSAGE = "Your file (%s, %s) has been uploaded successfully. The new file name is: %s";
+    const SUCCESS_UPLOAD_MESSAGE = "Your file (%s, %s) has been uploaded successfully. You can download it here: %s";
 }

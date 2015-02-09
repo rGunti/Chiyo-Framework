@@ -14,7 +14,7 @@
  */
 class HtmlUtils {
     public static function getLink($path, $body, $altText = NULL, $block = FALSE) {
-        $content = "<a href='" . Utils::getApplicationBasePath() . NavigationPath::getCurrentPath() . "/" . $path . "'";
+        $content = "<a href='" . Utils::getApplicationBasePath() . (substr($path, 0, 1) == "/" ? "" : NavigationPath::getCurrentPath() . "/") . $path . "'";
         if ($block == TRUE) { $content .= " class='blockLink'"; }
         if (isset($altText)) {
             $content .= " title='$altText'";

@@ -85,11 +85,15 @@ class Authentification {
         }
     }
     
-    public static function enforceRole($roleId) {
+    public static function enforceRole($roleId, $orRoleId1 = NULL, $orRoleId2 = NULL) {
         Authentification::enforceLoggedIn();
-        if (Authentification::getStoredProperty('role') != $roleId) {
+        $currentRoleId = Authentification::getStoredProperty('role');
+        if ($currentRoleId != $roleId && ($orRoleId1 != NULL && $currentRoleId != $orRoleId1) && ($orRoleId2 != NULL && $currentRoleId != $orRoleId2)) {
             Logger::log("WARN ", "User " . Authentification::getStoredProperty('name') . " tried to access path with group '" . 
-                    Authentification::getStoredProperty('role') . "' (required: '" . $roleId . "')");
+                    Authentification::getStoredProperty('role') . "' (required: '" . $roleId . "'" . 
+                            ($orRoleId1 != NULL ? ", '" . $orRoleId1 . "'" : "") . 
+                            ($orRoleId2 != NULL ? ", '" . $orRoleId2 . "'" : "") . 
+                    ")");
             NavigationPath::redirect("/403");
         }
     }
@@ -142,6 +146,13 @@ class Authentification {
         $db = MySQLUtils::getNewConnector();
         $db->where(ViewFieldConfig::USERS_ID, $id);
         return $db->getOne(ViewConfig::VIEW_USERS);
+    }
+    
+    public static function editUser($id, $role) {
+        Authentification::enforceRole(RoleConfig::ROLEID_ADMIN);
+        $db = MySQLUtils::getNewConnector();
+        $db->where(FieldConfig::USERS_ID, $id);
+        return $db->update(TableConfig::TABLE_USERS, array(FieldConfig::USERS_ROLE => $role));
     }
     
     public static function deleteUser($id) {

@@ -20,14 +20,14 @@ class AppConfig {
     const APP_LOG_LOCATION = "C:/xampp/htdata/chiyo/chiyo.log";
     const APP_LOG_VISIBLE = 1;
     const APP_LOG_REQUEST = 1;
-    const APP_LOG_DEBUG = 0;
+    const APP_LOG_DEBUG = 1;
     const APP_LOG_INFO = 1;
     const APP_LOG_WARN = 1;
     const APP_LOG_ERROR = 1;
     const APP_LOG_FATAL = 1;
     
     // Debug Configuration
-    const APP_DEBUG_SHOW_NAVPATH = 0;
+    const APP_DEBUG_SHOW_NAVPATH = 1;
     const APP_DEBUG_SHOW_VERSION = 1;
     const APP_DEBUG_SHOW_FW_VERSION = 1;
     
