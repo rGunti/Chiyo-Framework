@@ -31,10 +31,13 @@ ob_start();
         <!-- CSS Templates -->
         <link href="<?= Utils::getApplicationBasePath() ?>/js/libs/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css">
         <link href="<?= Utils::getApplicationBasePath() ?>/css/libs/jquery.dataTables.css" rel="stylesheet" type="text/css">
+        <link href="<?= Utils::getApplicationBasePath() ?>/css/style.comp.css" rel="stylesheet" type="text/css">
         
+        <?php /*
         <!-- LESS Include -->
         <link href="<?= Utils::getApplicationBasePath() ?>/css/style.less" rel="stylesheet/less" type="text/css">
         <script src="<?= Utils::getApplicationBasePath() ?>/js/libs/less.min.js"></script>
+         */ ?>
         
         <!-- JavaScript Include -->
         <script src="<?= Utils::getApplicationBasePath() ?>/js/_notifications.js"></script>
