@@ -34,12 +34,13 @@ class FileUpload {
      * @param Array $allowed Array of allowed file extensions (all extensions MUST be lowercase)
      * @return boolean
      */
-    public static function isAllowedFileExtension($file, $allowed = Array()) {
-        if (count($allowed) > 0) {
+    public static function isAllowedFileExtension($file, $allowed = "") {
+        $allowedTypes = explode(",", $allowed);
+        if (count($allowedTypes) > 0) {
             if (AppConfig::APP_UPLOAD_CHECKMIME) {
-                return in_array(strtolower(FileUpload::getFileMimeType($file)), $allowed);
+                return in_array(strtolower(FileUpload::getFileMimeType($file)), $allowedTypes);
             } else {
-                return in_array(strtolower(FileUpload::getFileExtension($file)), $allowed);
+                return in_array(strtolower(FileUpload::getFileExtension($file)), $allowedTypes);
             }
         } else {
             return true;

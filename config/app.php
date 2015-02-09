@@ -48,7 +48,7 @@ class AppConfig {
     const APP_UPLOAD_STORAGE = "C:/xampp/htdata/chiyo/uploads/";
     const APP_UPLOAD_MAXFILESIZE = 262144; // in Bytes => 256 kB
     const APP_UPLOAD_CHECKMIME = 0;
-    const APP_UPLOAD_ALLOWEDTYPES = array("jpg", "png");
+    const APP_UPLOAD_ALLOWEDTYPES = "jpg,png";
     const APP_UPLOAD_KEEPORIGINALNAME = 0;
 }
 
